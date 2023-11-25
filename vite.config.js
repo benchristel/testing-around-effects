@@ -1,5 +1,5 @@
-import {defineConfig} from "vite"
-import inject from "@rollup/plugin-inject"
+import {defineConfig} from "vite";
+import inject from "@rollup/plugin-inject";
 
 export default defineConfig({
   // Base path for references to asset files in the built code.
@@ -31,4 +31,4 @@ export default defineConfig({
       "react/jsx-runtime": "preact/jsx-runtime",
     },
   },
-})
+});
