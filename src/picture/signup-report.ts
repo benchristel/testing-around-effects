@@ -1,9 +1,9 @@
 import {database, queryFrom} from "./database";
 import {weeksAgo} from "./time";
-import {sendEmail} from "./email";
+import {Emails} from "./email";
 import {User} from "./user";
 
-async function sendSignupReport() {
+export async function sendSignupReport() {
   const newUsers = await database.run(
     queryFrom("users").where("signup_date", ">", weeksAgo(1)),
   );
@@ -12,7 +12,7 @@ async function sendSignupReport() {
 
   const reportHtml = formatReportAsHtml(reportData);
 
-  await sendEmail({
+  await Emails.send({
     from: "noreply@example.com",
     to: "eliza@example.com",
     subject: "Weekly signup report",

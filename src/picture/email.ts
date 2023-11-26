@@ -5,6 +5,10 @@ export interface Email {
   body: string;
 }
 
+export const Emails = {
+  send: sendEmail,
+};
+
 export function sendEmail(email: Email) {
   throw Error("sendEmail shouldn't be called in tests");
 }
